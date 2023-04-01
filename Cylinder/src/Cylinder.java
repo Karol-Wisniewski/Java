@@ -1,5 +1,3 @@
-package Cylinder;
-
 public class Cylinder {
     private double radius;
     private double height;
@@ -36,10 +34,10 @@ public class Cylinder {
     }
 
     public double getSurfaceArea() {
-        return 2 * Math.PI * radius * height + 2 * Math.PI * Math.pow(radius, 2);
+        return getSideSurfaceArea() + 2 * getBaseSurfaceArea();
     }
 
     public double getVolume() {
-        return Math.PI * Math.pow(radius, 2) * height;
+        return getBaseSurfaceArea() * height;
     }
 }
