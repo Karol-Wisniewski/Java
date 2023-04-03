@@ -17,27 +17,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        // Information about the program
         System.out.println("Welcome to the Cylinder program!");
         System.out.println("This application lets you create a cylinder and get its volume and surface area (total, base and side).");
         System.out.println("You can also get the radius and height of the cylinder and change their values.");
-        System.out.println("----------------------------------------");
 
-        // Get the radius and height from the user
+        Cylinder cylinder = new Cylinder();
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the radius of the cylinder:");
-        double radius = scanner.nextDouble();
-        System.out.println("Please enter the height of the cylinder:");
-        double height = scanner.nextDouble();
 
-        // Create a new cylinder with the given radius and height
-        Cylinder cylinder = new Cylinder(radius, height);
-
-        //Create reference to the cylinder
-        Cylinder cylinderReference = cylinder;
-
-        // Give user options to operate with the cylinder
         printMenu();
 
         int option = scanner.nextInt();
@@ -53,11 +40,11 @@ public class Main {
                 case 6 -> System.out.println("The height of the cylinder is: " + cylinder.getHeight());
                 case 7 -> {
                     System.out.println("Please enter the new radius of the cylinder:");
-                    cylinderReference.setRadius(scanner.nextDouble());
+                    cylinder.setRadius(scanner.nextDouble());
                 }
                 case 8 -> {
                     System.out.println("Please enter the new height of the cylinder:");
-                    cylinderReference.setHeight(scanner.nextDouble());
+                    cylinder.setHeight(scanner.nextDouble());
                 }
                 default -> System.out.println("Invalid option!");
             }
