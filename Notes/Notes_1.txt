@@ -1,0 +1,137 @@
+-------------------------------------Importing packages, classes in Java:-------------------------------------
+
+
+import package.name.Class;   // Import a single class
+import package.name.*;   // Import the whole package
+
+
+----------------------------------Commonly used Java (17) built-in packages:----------------------------------
+
+
+java.lang - Fundamental classes for the Java programming language (e.g., Object, String, Math, System, etc.)
+java.util - Collection framework, date and time facilities, event model, and other miscellaneous utility classes (e.g., ArrayList, HashMap, LinkedList, etc.)
+java.io - Basic input and output classes, such as file and network I/O streams (e.g., FileInputStream, FileOutputStream, BufferedReader, BufferedWriter, etc.)
+java.nio - Buffer, channels, and selectors for scalable I/O (e.g., ByteBuffer, FileChannel, Selector, etc.)
+java.net - Networking classes for implementing internet protocols (e.g., Socket, URL, InetAddress, etc.)
+java.text - Classes and interfaces for handling text, dates, numbers, and messages in a localized and independent manner (e.g., DateFormat, DecimalFormat, etc.)
+java.time - Date and time API introduced in Java 8 (e.g., LocalDateTime, ZonedDateTime, Duration, etc.)
+java.math - Classes for arbitrary-precision arithmetic (e.g., BigInteger, BigDecimal, etc.)
+java.security - Security and cryptography classes (e.g., MessageDigest, SecureRandom, etc.)
+java.sql - Classes for connecting to and manipulating relational databases using SQL (e.g., Connection, Statement, ResultSet, etc.)
+
+
+-------------------------------------------Example of "main" method-------------------------------------------:
+
+
+public class MainExample { // 1
+    public static void main(String[] args) { // 2
+        System.out.println("Hello, World!"); // 3
+    }
+}
+
+1. public static void main(String[] args): This line defines the main method, which serves as the entry point for a Java application. The method has the following keywords:
+2. public: This keyword makes the method accessible from any other class.
+3. static: This keyword indicates that the method belongs to the class itself, rather than an instance of the class. As a result, you don't need to create an object to call the main method.
+4. void: This keyword means that the method does not return any value.
+5. main: This is the name of the method. The Java Virtual Machine (JVM) looks for a method named main to start the execution of a Java application.
+6. String[] args: This is the parameter of the main method, representing an array of String objects. It allows you to pass command-line arguments to the Java application.
+
+
+----------------------------------------Hypothetical package structure----------------------------------------:
+
+
+com.example
+├── math
+│   ├── Complex.java
+│   └── Quaternion.java
+└── geometry
+    ├── Point.java
+    └── Shape.java
+
+Suppose you want to import the Complex class from the com.example.math package:
+
+import com.example.math.Complex;
+
+
+----------------------------------------------Naming conventions----------------------------------------------:
+
+
+Use PascalCase (capitalize the first letter of each word).
+They should be nouns, as they represent objects or concepts (e.g., Customer, Thread, DataInputStream, ActionListener).
+Methods:
+
+Use camelCase (capitalize the first letter of each word except the first word).
+They should be verbs, as they represent actions or behaviors (e.g., toString, getFirstName, calculateArea, addActionListener).
+Variables (instance variables, local variables, and method parameters):
+
+Use camelCase.
+Choose meaningful and descriptive names (e.g., firstName, totalItems, maximumValue).
+For short-lived variables or loop counters, it's acceptable to use short names such as i, j, k, x, y, z.
+Constants:
+
+Use uppercase letters with words separated by underscores (_).
+They should be nouns (e.g., MAX_VALUE, MINIMUM_SIZE, DEFAULT_COLOR).
+Packages:
+
+Use lowercase letters.
+Use a reversed domain name for the package hierarchy to ensure uniqueness (e.g., com.example.application, org.apache.commons).
+Separate different parts of the package name with periods (.) to create a hierarchy.
+
+
+----------------------------------------------------Scopes----------------------------------------------------:
+
+
+1. Class-level scope: Variables and methods defined within a class are accessible throughout the class, and their lifetime is tied to the class or its instances.
+2. Method-level scope: Variables defined within a method are only accessible within that method, and their lifetime is limited to the method execution.
+3. Block-level scope: Variables defined within a block (e.g., loops or conditional statements) are only accessible within that block, and their lifetime is limited to the block execution.
+
+
+------------------------------------------------'Static' in Java----------------------------------------------:
+
+
+1. Static variables:
+
+    Also known as class variables, they are shared among all instances of the class.
+    They are initialized only once, when the class is loaded.
+    They can be accessed directly using the class name, without the need for an object (e.g., ClassName.variableName).
+
+2. Static methods:
+
+    Also known as class methods, they can be called directly using the class name, without the need for an object (e.g., ClassName.methodName()).
+    They can only access static variables and call other static methods of the class.
+    They cannot access instance variables or call instance methods.
+    The most common example of a static method is the main method, which serves as the entry point for Java applications.
+
+3. Static inner classes:
+
+    They do not have a reference to an instance of the outer class, which means they cannot access instance variables or methods of the outer class.
+    They are useful when you want to create an inner class that doesn't depend on an instance of the outer class.
+    They can have both static and non-static members.
+
+
+----------------------------------Difference between 'private' and 'protected'----------------------------------:
+
+1. private:
+
+The most restrictive access modifier.
+Class members declared as private are only accessible within the same class in which they are defined.
+They cannot be accessed from outside the class, including from subclasses or other classes in the same package.
+Using private is a way to encapsulate and hide the internal details of a class, enforcing a clean separation of concerns and promoting good object-oriented programming practices.
+
+
+2. protected:
+
+Less restrictive than private.
+Class members declared as protected are accessible within the same class, as well as from subclasses (even if they are in a different package) and other classes in the same package.
+Using protected allows you to expose certain members of a class to subclasses for extension or modification while keeping them hidden from other unrelated classes.
+
+
+-------------------------------------------How does GC work in Java?-------------------------------------------:
+
+
+Here are some scenarios when an object becomes eligible for garbage collection:
+
+1. When a variable goes out of scope
+2. When a reference variable is assigned a new value
+3. When an object is explicitly set to null
+4. When an object is only referenced by a WeakReference
